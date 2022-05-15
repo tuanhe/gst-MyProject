@@ -6,4 +6,11 @@ cd  gst-plugins-bad/tools
 ./gst-project-maker MyProject
 
 
+Step 1
+
+./gst-element-maker MyProject basetransform
+mv gstmyproject.h gst-MyProject/plugins/gstMyProject.h
+mv gstMyProject.c gst-MyProject/plugins/gstMyProject.c
+
+
 
