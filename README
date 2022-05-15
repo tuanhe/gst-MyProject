@@ -1,1 +1,9 @@
 README for your project.
+
+Step 0
+
+cd  gst-plugins-bad/tools
+./gst-project-maker MyProject
+
+
+
