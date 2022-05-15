@@ -15,7 +15,7 @@ plugin_sources = [
   './gstMyProjectplugin.c'
   ]
 
-gstpluginexample = library('gstplugin',
+gstpluginexample = library('gstmyproject',
   plugin_sources,
   c_args: plugin_c_args,
   dependencies : [gst_dep, gstbase_dep],
