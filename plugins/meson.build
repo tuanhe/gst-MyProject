@@ -11,14 +11,14 @@ configure_file(output : 'config.h', configuration : cdata)
 
 # Plugin 1
 plugin_sources = [
-  './gstMyProject.c'
+  './gstMyProject.c',
   './gstMyProjectplugin.c'
   ]
 
 gstpluginexample = library('gstplugin',
   plugin_sources,
   c_args: plugin_c_args,
-  dependencies : [gst_dep],
+  dependencies : [gst_dep, gstbase_dep],
   install : true,
   install_dir : plugins_install_dir,
 )

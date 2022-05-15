@@ -63,7 +63,7 @@ GST_PLUGIN_DEFINE (
     MyProject,
     "FIXME Template plugin",
     plugin_init,
-    VERSION,
+    PACKAGE_VERSION,
     "LGPL", /* FIXME */
     "GStreamer",
     "http://gstreamer.net/"

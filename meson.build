@@ -10,6 +10,9 @@ api_version = '1.0'
 
 gst_dep = dependency('gstreamer-1.0',
           fallback : ['gstreamer', 'gst_dep'])
+gstbase_dep = dependency('gstreamer-base-1.0',
+          fallback : ['gstreamer', 'gst_base_dep'])
+
 
 subdir('tools')
 subdir('plugins')
