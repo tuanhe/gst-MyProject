@@ -465,6 +465,7 @@ gst_myproject_transform_ip (GstBaseTransform * trans, GstBuffer * buf)
   return GST_FLOW_OK;
 }
 
+#if 0
 static gboolean
 plugin_init (GstPlugin * plugin)
 {
@@ -497,4 +498,4 @@ GST_PLUGIN_DEFINE (GST_VERSION_MAJOR,
     myproject,
     "FIXME plugin description",
     plugin_init, VERSION, "LGPL", PACKAGE_NAME, GST_PACKAGE_ORIGIN)
-
+#endif

@@ -4,36 +4,19 @@ IF (CONFIG STREQUAL YES)
     ADD_DEFINITIONS(-DHAVE_CONFIG_H)
 ENDIF()
 
-project (gstMyProject)
+project (gstmyproject)
 
-set(GST_DIR /home/i/framework/gstreamer)
-message("GST dir : ${GST_DIR}")
-
-set(HEADER_FILE gst.h)
-# Add the support library
-find_path(GST_INCLUDE_DIR 
-          ${HEADER_FILE}
-          HINTS ${GST_DIR}/gst)
-if(NOT GST_INCLUDE_DIR)
-    message(WARNING "Gst head file (${HEADER_FILE}) not found")
-else()
-    message(STATUS "Gst head file located at: ${GST_INCLUDE_DIR}")
-    include_directories(${GST_INCLUDE_DIR}/..)
-    include_directories(${GST_INCLUDE_DIR}/../build)
-    include_directories(${GST_INCLUDE_DIR}/../libs)
-endif()   
-
-set(GSTLIB ${GST_DIR}/build/gst/libgstreamer-1.0.so)
-set(GSTBASELIB ${GST_DIR}/build/libs/gst/base/libgstbase-1.0.so)
-set(GOBJLIB gobject-2.0)
-
-##glib
 find_package(PkgConfig REQUIRED)
-pkg_search_module(GLIB REQUIRED glib-2.0)
-include_directories(${GLIB_INCLUDE_DIRS})
-link_directories(${GLIB_LIBRARY_DIRS})
-MESSAGE(STATUS "glib-2.0 include dirs:" ${GLIB_INCLUDE_DIRS})
-MESSAGE(STATUS "glib-2.0 lib:" ${GLIB_LIBRARIES})
+pkg_search_module(GST REQUIRED gstreamer-1.0 gstreamer-base-1.0)
+include_directories(${GST_INCLUDE_DIRS})
+link_directories(${GST_LIBRARIES})
+MESSAGE(STATUS "gstreamer include dirs:" ${GST_INCLUDE_DIRS})
+MESSAGE(STATUS "gstreamer lib:" ${GST_LIBRARIES})
+
+find_package(PkgConfig REQUIRED)
+pkg_search_module(GSTBASE REQUIRED gstreamer-base-1.0)
+MESSAGE(STATUS "gstreamerbase include dirs:" ${GSTBASE_INCLUDE_DIRS})
+MESSAGE(STATUS "gstreamerbase lib:" ${GSTBASE_LIBRARIES})
 
 add_subdirectory (apps)
 add_subdirectory (plugins)
