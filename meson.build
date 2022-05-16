@@ -14,5 +14,5 @@ gstbase_dep = dependency('gstreamer-base-1.0',
           fallback : ['gstreamer', 'gst_base_dep'])
 
 
-subdir('tools')
+subdir('apps')
 subdir('plugins')
